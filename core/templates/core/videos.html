@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>+Mas Label - HCS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+     <!-- Hamburger Menu for Mobile -->
+     <div class="md:hidden">
+        <button id="menu-toggle" class="focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Navbar -->
+    <nav class="bg-red-600 text-white">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="text-3xl font-bold">HCS</a>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+                <li><a href="{% url 'playlists' %}" class="hover:underline">Playlists</a></li>
+                <li><a href="{% url 'videos' %}" class="hover:underline">Videos</a></li>
+                <li><a href="{% url 'contact' %}" class="hover:underline">Contact</a></li>
+            </ul>
+            <div class="md:hidden">☰</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-red-600">+Mas Franchute</h1>
+
+        <!-- Spanish Section -->
+        <p class="mt-4 font-semibold">(FR)</p>
+        <p class="mt-2 leading-relaxed">
+            Je suis très heureux de vous rencontrer parce qu'au moment où nous avons dansé cette journée dans la joie et le rire, j'ai dit que cette femme était une parmi des millions d'autres. 
+        </p>
+
+        <!-- English Section -->    
+        <p class="mt-6 font-semibold">(FR)</p>
+        <p class="mt-2 leading-relaxed">
+            Je sais aussi que vous avez de nombreux projets pour votre vie, comme votre maison, votre famille, etc. Et je veux du fond du cœur que tu y arrives, tu es une femme forte et étonnante et je sais que tu y arriveras. Si je peux t'aider d'une manière ou d'une autre, n'hésite pas à me demander, je serai toujours là pour toi. 
+        </p>
+
+        <!-- Video Embed Section -->
+        <div class="mt-8">
+            <video class="w-full h-64 md:h-96" controls>
+                <source src="{% static 'assets/video/video1.mp4' %}" type="video/mp4">
+                Aca Vuelteando.
+            </video>
+
+        <!-- Brands Section -->
+        <h2 class="mt-12 text-2xl font-bold">Marcas / Brands</h2>
+        <p class="mt-2">
+            HCS: Vueltas que da la vida.
+        </p>
+
+        <!-- Brand Logos (Placeholder) -->
+        <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <img src="{% static 'assets/images/fb.png' %}" alt="Brand Logo" class="w-full h-auto">
+            <img src="{% static 'assets/images/wp.png' %}" alt="Brand Logo" class="w-full h-auto">
+            <img src="{% static 'assets/images/insta.png' %}" alt="Brand Logo" class="w-full h-auto">
+            <img src="{% static 'assets/images/tiktok.png' %}" alt="Brand Logo" class="w-full h-auto">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-red-600 text-white text-center py-4 mt-12">
+        © 2025 EMPO - Todos los derechos reservados by Ivan.
+    </footer>
+
+</body>
+</html>

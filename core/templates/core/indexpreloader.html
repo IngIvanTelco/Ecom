@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music News Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@heroicons/vue@2.0.11/dist/heroicons.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .spin {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #75ABBC;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spin"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-red-600 text-white px-4 md:px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <!-- Music Note Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-2v13M9 19a4 4 0 11-4-4 4 4 0 014 4zM21 17a4 4 0 11-4-4 4 4 0 014 4z" />
+            </svg>
+            <div class="text-2xl font-bold">MUSIC NEWS</div>
+        </div>
+        <!-- Hamburger Menu for Mobile -->
+        <div class="md:hidden">
+            <button id="menu-toggle" class="focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Navigation Links -->
+        <div id="menu" class="hidden md:flex space-x-4">
+            <a href="{% url 'home' %}" class="hover:underline">Home</a>
+            <a href="{% url 'playlists' %}" class="hover:underline">Playlists</a>
+            <a href="{% url 'videos' %}" class="hover:underline">Videos</a>
+            <a href="{% url 'contact' %}" class="hover:underline">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center text-white py-16 px-4 md:px-8" style="background-image: url('https://source.unsplash.com/1600x900/?music,concert');">
+        <div class="max-w-3xl">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">PIAZZA SELA VENCIÓ A LOS ARCTIC MONKEYS</h1>
+            <p class="text-lg md:text-xl mb-6">Descubre cómo esta banda emergente logró superar a los gigantes del indie rock.</p>
+            <a href="{% url 'article_detail' 1 %}" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded">Leer Más</a>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="max-w-5xl mx-auto py-8 px-4 md:px-8">
+        <h2 class="text-2xl font-bold mb-4">Últimas Noticias</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white shadow rounded-lg overflow-hidden">
+                <img src="https://source.unsplash.com/400x300/?music,band" alt="news" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Nueva Banda Revoluciona el Indie</h3>
+                    <p class="text-gray-600">Una nueva banda emergente está cambiando el panorama musical...</p>
+                    <a href="{% url 'article_detail' 2 %}" class="text-red-600 hover:underline mt-2 inline-block">Leer Más</a>
+                </div>
+            </div>
+            <div class="bg-white shadow rounded-lg overflow-hidden">
+                <img src="https://source.unsplash.com/400x300/?concert,live" alt="news" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Los Conciertos Más Esperados</h3>
+                    <p class="text-gray-600">No te pierdas los eventos musicales que marcarán este año...</p>
+                    <a href="{% url 'article_detail' 3 %}" class="text-red-600 hover:underline mt-2 inline-block">Leer Más</a>
+                </div>
+            </div>
+            <div class="bg-white shadow rounded-lg overflow-hidden">
+                <img src="https://source.unsplash.com/400x300/?festival,music" alt="news" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Festivales Imperdibles</h3>
+                    <p class="text-gray-600">Descubre los festivales que no puedes dejar pasar este verano...</p>
+                    <a href="{% url 'article_detail' 4 %}" class="text-red-600 hover:underline mt-2 inline-block">Leer Más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Playlists Section -->
+    <section class="max-w-5xl mx-auto py-8 px-4 md:px-8">
+        <h2 class="text-2xl font-bold mb-4">Playlists Destacadas</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+            <!-- Playlist 1 -->
+            <div class="bg-red-600 text-white p-4 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-2">Top Hits Indie</h3>
+                <ul class="space-y-2">
+                    <li>1. Banda X - Canción 1</li>
+                    <li>2. Artista Y - Canción 2</li>
+                    <li>3. Grupo Z - Canción 3</li>
+                    <li>4. Artista A - Canción 4</li>
+                    <li>5. Banda B - Canción 5</li>
+                </ul>
+                <a href="{% url 'playlist_detail' 1 %}" class="mt-4 bg-white text-red-600 px-4 py-2 rounded hover:bg-gray-100 inline-block">Escuchar</a>
+            </div>
+
+            <!-- Playlist 2 -->
+            <div class="bg-green-600 text-white p-4 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-2">Rock Clásico</h3>
+                <ul class="space-y-2">
+                    <li>1. Banda C - Canción 1</li>
+                    <li>2. Grupo D - Canción 2</li>
+                    <li>3. Artista E - Canción 3</li>
+                    <li>4. Banda F - Canción 4</li>
+                    <li>5. Grupo G - Canción 5</li>
+                </ul>
+                <a href="{% url 'playlist_detail' 2 %}" class="mt-4 bg-white text-green-600 px-4 py-2 rounded hover:bg-gray-100 inline-block">Escuchar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-700 text-white text-center py-6">
+        <p class="text-sm">&copy; 2025 Music News. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript for Preloader and Mobile Menu -->
+    <!----   <script>
+        // Hide Preloader after page loads
+        window.addEventListener('load', () => {
+            document.getElementById('preloader').style.display = 'none';
+        });
+
+        // Toggle Mobile Menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+-->
+</body>
+</html>

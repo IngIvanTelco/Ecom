@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music News Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .spin {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #75ABBC;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+         /* Utility class for primary buttons */
+         .btn-primary {
+             background-color: #dc2626; /* Tailwind's bg-red-600 */
+             color: #fff;
+             padding: 0.5rem 1rem;
+             border-radius: 0.25rem;
+             transition: background-color 0.3s;
+         }
+ 
+         .btn-primary:hover {
+             background-color: #b91c1c; /* Tailwind's bg-red-700 */
+         }
+
+         body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .bg-success {
+    background-color: #28a745; /* A green color, commonly used for "success" */
+  }
+
+    .text-green-custom {
+        color: #28a745; /* Verde personalizado */
+    }
+
+
+        </style>
+
+</head>
+<body class="bg-gray-100">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spin"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-success text-white px-4 lg:px-16 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+            <!-- Replaced SVG Icon with Image -->
+            <img src="{% static 'assets/images/music_logo.ico' %}" alt="Music Logo" class="h-8 w-8 object-cover rounded-full" width="80px">
+            <div class="text-2xl font-bold">Novedades</div>
+        </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="md:hidden">
+            <button id="menu-toggle" class="focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <div id="menu" class="hidden md:flex space-x-4">
+            <a href="{% url 'home' %}" class="hover:underline">Home</a>
+            <a href="{% url 'playlists' %}" class="hover:underline">Playlists</a>
+            <a href="{% url 'videos' %}" class="hover:underline">Videos</a>
+            <a href="{% url 'contact' %}" class="hover:underline">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center py-16 px-4 md:px-8" style="background-image: url('https://source.unsplash.com/1600x900/?music,concert');">
+        <div class="max-w-3xl">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 text-green-custom">Bolivia's Great Hits fot This Season</h1>
+            <p class="text-lg md:text-xl mb-6 text-green-custom">Find out the music that let's you stay connected</p>
+            <a href="https://open.spotify.com/playlist/14Ko4z5nl0RlRBrsbtkvHn" class="btn-primary">Read More</a>
+        </div>
+    </section>
+
+    <!-- Latest News (Images as Buttons Redirecting to empo.tv) -->
+    <section class="max-w-5xl mx-auto py-8 px-4 md:px-8">
+        <h2 class="text-2xl font-bold mb-4">Lastest News</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- News Item 1 -->
+            <a href="https://www.last.fm/es/tag/indie+latino/artists" target="_blank" class="block bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                <img src="{% static 'assets/images/news1.jpg' %}" alt="Nueva Banda Revoluciona el Indie" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Find out all the kind of electronic music</h3>
+                    <p class="text-gray-600">There are so many styles on electronic music that you wouldn't believe</p>
+                </div>
+            </a>
+
+            <!-- News Item 2 -->
+            <a href="https://superticket.bo" target="_blank" class="block bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                <img src="{% static 'assets/images/news2.jpg' %}" alt="Los Conciertos Más Esperados" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Los Conciertos Más Esperados</h3>
+                    <p class="text-gray-600">No te pierdas los eventos musicales que marcarán este año...</p>
+                </div>
+            </a>
+
+            <!-- News Item 3 -->
+            <a href="https://www.tripadvisor.es/Attractions-g294072-Activities-c20-La_Paz_La_Paz_Department.html" target="_blank" class="block bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                <img src="{% static 'assets/images/news3.jpg' %}" alt="Festivales Imperdibles" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-2">Festivales Imperdibles</h3>
+                    <p class="text-gray-600">Descubre los festivales que no puedes dejar pasar este verano...</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Playlists Section (unchanged) -->
+    <section class="max-w-5xl mx-auto py-8 px-4 md:px-8">
+        <h2 class="text-2xl font-bold mb-4">Playlists Destacadas</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+            <!-- Playlist 1 -->
+            <div class="bg-red-600 text-white p-4 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-2">Top Hits Indie</h3>
+                <ul class="space-y-2">
+                    <li>1. Silvestre y La Naranja - El Instinto</li>
+                    <li>2. Mistica - Esteman & Bandalos Chinos</li>
+                    <li>3. La Trama y el Deselace - Jorge Drexler</li>
+                    <li>4. Fotosintesis + Bienvenidos - Caloncho</li>
+                    <li>5. Fuera de Lugar - Little Jesus & Girl Ultra</li>
+                </ul>
+                <a href="https://open.spotify.com/playlist/14Ko4z5nl0RlRBrsbtkvHn" class="btn-primary">Playlist</a>
+            </div>
+
+            <!-- Playlist 2 -->
+            <div class="bg-green-600 text-white p-4 rounded-lg shadow-lg">
+                <h3 class="text-xl font-bold mb-2">Argenmexicow</h3>
+                <ul class="space-y-2">
+                    <li>1. La Magia - Little Jesus</li>
+                    <li>2. A la Vez - Conociendo Rusia</li>
+                    <li>3. La Declaración - Zar</li>
+                    <li>4. Ser Parte - Siddhartha</li>
+                    <li>5. Chachachá - Jósean Log</li>
+                </ul>
+                <a href="https://open.spotify.com/playlist/14Ko4z5nl0RlRBrsbtkvHn" class="mt-4 bg-white text-green-600 px-4 py-2 rounded hover:bg-gray-100 inline-block">Escuchar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-red-700 text-white text-center py-6">
+        <p class="text-sm">&copy; 2025 HCS. Todos los derechos reservados por Ivan.</p>
+    </footer>
+
+    <!-- JavaScript for Preloader and Mobile Menu -->
+    <script>
+        // Hide Preloader after page loads
+        window.addEventListener('load', () => {
+            document.getElementById('preloader').style.display = 'none';
+        });
+
+        // Toggle Mobile Menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Nosotros / About - HCS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .ramo-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .ramo-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .ramo-title {
+            font-size: 24px;
+            color: #333;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-red-600 text-white">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" class="text-3xl font-bold">HCS</a>
+            <nav class="hidden md:flex space-x-6">
+                <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+                <li><a href="{% url 'playlists' %}" class="hover:underline">Playlists</a></li>
+                <li><a href="{% url 'videos' %}" class="hover:underline">Videos</a></li>
+                <li><a href="{% url 'contact' %}" class="hover:underline">Contact</a></li>
+            </nav>
+            <div class="md:hidden">☰</div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <div class="bg-red-500 h-16 flex items-center justify-center text-white font-bold text-lg">
+        NUNCA DEJES DE SONREIR
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
+        <!-- Main Content -->
+        <div class="flex-1">
+            <h1 class="text-3xl font-bold mb-4">Acerca de Nosotros / About</h1>
+            <h2 class="text-red-600 text-2xl font-bold mb-2">EMPO</h2>
+
+            <div class="container mx-auto px-4 py-8">
+                <h1 class="text-4xl font-bold text-red-600">+Mas Label</h1>
+        
+                <!-- Spanish Section -->
+                <p class="mt-4 font-semibold">(ES)</p>
+                <p class="mt-2 leading-relaxed">
+                    Esta es una pagina para el dia de San Valentin por mas comercial que sea, me da la oportunidad de por lo menos escribirte un poco. Espero que nuestros caminos vuelvan a cruzarse. Un abrazo y beso enorme ma cherie.
+                </p>
+        
+                <!-- English Section -->
+                <p class="mt-6 font-semibold">(FR)</p>
+                <p class="mt-2 leading-relaxed">
+                    Il s'agit d'une page de la Saint-Valentin, aussi commerciale soit-elle, qui me donne l'occasion de vous écrire un peu. J'espère que nos chemins se croiseront à nouveau. Un gros câlin et un gros baiser ma chérie.
+                </p>
+            </div>
+        </div>    
+        
+        
+            <div class="ramo-container">
+                <img src="{% static 'assets/images/flores.jpg' %}" alt="Ramo de Girasoles" class="ramo-image">
+                <h1 class="ramo-title">Espero verte para darte el real.</h1>
+            </div>
+        
+            <script>
+                // URL de una API que devuelve imágenes de flores (puedes cambiarla por una API específica de girasoles)
+                const apiUrl = "https://picsum.photos/500/500?grayscale&blur=2";
+        
+                // Selecciona la imagen y establece su src
+                const ramoImage = document.getElementById('ramo-image');
+                ramoImage.src = apiUrl;
+            </script>
+</body>
+     

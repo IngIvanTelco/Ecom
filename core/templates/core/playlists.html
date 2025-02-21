@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music News Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-black text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">HCS</a>
+            <ul class="flex space-x-4">
+                <li><a href="{% url 'home' %}" class="hover:underline">Home</a></li>
+                <li><a href="{% url 'playlists' %}" class="hover:underline">Playlists</a></li>
+                <li><a href="{% url 'videos' %}" class="hover:underline">Videos</a></li>
+                <li><a href="{% url 'contact' %}" class="hover:underline">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto py-8">
+        <h1 class="text-4xl font-bold mb-6">Música</h1>
+
+        <!-- Article List -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Article 1 -->
+            <div class="bg-white p-4 rounded shadow">
+                <img src="{% static 'assets/images/play4.jpeg' %}" alt="Article Image" class="w-full h-48 object-cover rounded mb-4">
+                <h2 class="text-2xl font-bold mb-2">Tu forma de ser y tu sonrisa me cautivaron - Me volvio loco tu forma de ser</h2>
+                <p class="text-gray-700">Desde el momento que te vi en aquella plaza pues me quede viendo aquella linda sonrisa y despues al conocerte aquella noche me pareciste una mujer ree copada, con una miraba que mataba y con un buen comentario para la ocasión.</p>
+            </div>
+            <!-- Article 2 -->
+            <div class="bg-white p-4 rounded shadow">
+                <img src="{% static 'assets/images/play2.jpeg' %}" alt="Article Image" class="w-full h-48 object-cover rounded mb-4">
+                <h2 class="text-2xl font-bold mb-2">Aquellas charlas que tuvimos fueron alimento para el alma - Quereme Siempre/Zenon Pereyra</h2>
+                <p class="text-gray-700">Esos mates y comidas que tuvimos fueron una apertura de como somos y nos percibimos ante nosotros y el mundo, tu una mujer con los pies bien puestos sobre la tierra, yo un soñador empedernido. Esos dias nos llegamos a conocer un poco mas y la verda me quede con mas ganas.</p>
+            </div>
+            <!-- Article 3 -->
+            <div class="bg-white p-4 rounded shadow">
+                <img src="{% static 'assets/images/play3.jpeg' %}" alt="Article Image" class="w-full h-48 object-cover rounded mb-4">
+                <h2 class="text-2xl font-bold mb-2">Yo estoy lejos pero para vos siempre estare a un mensaje, un suspiro - Tu Vida mi Vida/ Fito</h2>
+                <p class="text-gray-700">Y si estamos como que a unos buenos Kilometros lejos lo se lo se.. pero lo que daria por estar ahi contigo y despertarte con un beso como aquella vez de vinos</p>
+            </div>
+            <!-- Add more articles as needed -->
+        </div>
+    </div>
+</body>
+</html>
