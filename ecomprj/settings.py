@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-+6o!^_aq8q41zpj)0m(p*)m4m3q^5bm51h@5r!9kachgg#vafq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['empotv.com', 'www.empotv.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['empotv.com', 'www.empotv.com', '127.0.0.1', 'localhost', '0.0.0.0']
 
 
 # Application definition
